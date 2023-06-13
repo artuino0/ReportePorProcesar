@@ -8,8 +8,10 @@ export default {
         "white": "#fff",
         "data": "#f7f9fc",
         "disabledText": "#a6aab2",
-        "ligth-gray": "#eaeff4"
-      }
+        "ligth-gray": "#eaeff4",
+        'accent-blue': 'var(--accent-blue)'
+      },
+      
     },
   },
   plugins: [],
