@@ -7,9 +7,8 @@ function App() {
   return (
     <>
       <Header />
-      <h1 className="ml-10 my-7 text-3xl">Disponible en piso</h1>
-      <TableData />
-
+      <Cards/>
+      <TableData /> 
     </>
   );
 }

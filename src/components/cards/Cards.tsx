@@ -1,13 +1,17 @@
-import BtnCard from "./BtnCard";
-import RigthCard from "./RigthCard";
+import CompletadoCard from "./CompletadoCard";
+import ParaEmpacar from "./ParaEmpacar";
+import PisoCard from "./PisoCard"; 
+import ProcesosCard from "./ProcesosCard";
 
 const Cards = () => {
   return (
   <>
-    <div className="flex items-center bg-white rounded-md mx-7 justify-between">
-    <BtnCard/>
-    <RigthCard/>
-    </div>
+  <div className="flex w-full m-auto px-6 mb-10">
+    <PisoCard/>
+    <ProcesosCard/>
+    <CompletadoCard/>
+    <ParaEmpacar/>
+  </div>
   </>
     )
   
