@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CompletadoCard from "./CompletadoCard";
 import ParaEmpacar from "./ParaEmpacar";
 import PisoCard from "./PisoCard";
+import { EXCLUIDOS } from "../../global";
 
 import Recepcion from "../../interfeces/receptions";
 import ProcesosCard from "./ProcesosCard";
@@ -27,27 +28,33 @@ const Cards = (props: IProps) => {
     let porProcesarIteracion = 0;
     let procesadoIteracion = 0;
 
-    recepciones.map((recepcion) => {
-      disponibleIteracion = disponibleIteracion + recepcion.noProcesado;
-      setDisponible(disponibleIteracion);
+    recepciones
+      .filter(
+        (recepcion) => !EXCLUIDOS.includes(recepcion.cultivo.split(" ")[0])
+      )
+      .map((recepcion) => {
+        disponibleIteracion = disponibleIteracion + recepcion.noProcesado;
+        setDisponible(disponibleIteracion);
 
-      porEmpacarIteracion = porEmpacarIteracion + recepcion.total_para_empacar;
-      setParaEmpacar(porEmpacarIteracion);
+        porEmpacarIteracion =
+          porEmpacarIteracion + recepcion.total_para_empacar;
+        setParaEmpacar(porEmpacarIteracion);
 
-      complteadoIteracion = complteadoIteracion + recepcion.completado;
-      setCompletado(complteadoIteracion);
+        complteadoIteracion = complteadoIteracion + recepcion.completado;
+        setCompletado(complteadoIteracion);
 
-      porProcesarIteracion = porProcesarIteracion + recepcion.corriendo.porProcesar;
-      procesadoIteracion = procesadoIteracion + recepcion.corriendo.procesado;
-      setProcesos({
-        porProcesar: porProcesarIteracion,
-        procesado: procesadoIteracion,
+        porProcesarIteracion =
+          porProcesarIteracion + recepcion.corriendo.porProcesar;
+        procesadoIteracion = procesadoIteracion + recepcion.corriendo.procesado;
+        setProcesos({
+          porProcesar: porProcesarIteracion,
+          procesado: procesadoIteracion,
+        });
       });
-    });
   }, [recepciones]);
 
   return (
-    <div className="flex gap-5 w-full m-auto px-6 mb-5">
+    <div className="flex gap-5 w-full m-auto px-3 mb-3 ">
       <PisoCard disponible={disponible} />
       <ProcesosCard procesando={procesos} />
       <CompletadoCard completado={completado} />
