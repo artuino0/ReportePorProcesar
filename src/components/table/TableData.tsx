@@ -62,13 +62,15 @@ const TableData = (props: IProps) => {
                   <>
                     <tr
                       className={
-                        recepcion.detailed ? "font-bold" : "even:bg-gray-50"
+                        recepcion.detailed
+                          ? "font-bold"
+                          : "even:bg-gray-50 hover:bg-gray-100 hover:cursor-pointer"
                       }
                       key={recepcion.cultivo}
                     >
-                      <td className="py-[3.5px] text-left pl-6">
+                      <td className="py-[3.5px] text-left pl-3">
                         <button
-                          className="h-5 w-5 items-center justify-center mx-1"
+                          className="h-5 w-5 mr-2 items-center justify-center mx-1"
                           onClick={() => handleOpenClick(recepcion.cultivo)}
                         >
                           <i
@@ -111,12 +113,12 @@ const TableData = (props: IProps) => {
                                 className={
                                   agricola.detailed
                                     ? "font-semibold bg-slate-100"
-                                    : "even:bg-gray-50"
+                                    : "even:bg-gray-50 hover:bg-gray-100 hover:cursor-pointer"
                                 }
                               >
-                                <td className="py-1 text-left pl-11">
+                                <td className="py-1 text-left pl-8">
                                   <button
-                                    className="h-5 w-5 items-center justify-center mx-1"
+                                    className="h-5 w-5 mr-2 items-center justify-center mx-1"
                                     onClick={() =>
                                       handleOpenClick(agricola.agricola)
                                     }
@@ -168,13 +170,13 @@ const TableData = (props: IProps) => {
                                       key={lote.lote}
                                       className={
                                         lote.detailed
-                                          ? "font-semibold bg-orange-100"
-                                          : "even:bg-gray-50"
+                                          ? "font-semibold bg-orange-100 "
+                                          : "even:bg-gray-50 hover:bg-gray-100 hover:cursor-pointer"
                                       }
                                     >
-                                      <td className="py-1 text-left pl-16">
+                                      <td className="py-1 text-left pl-14">
                                         <button
-                                          className="h-5 w-5 items-center justify-center mx-1"
+                                          className="h-5 w-5 mr-2 items-center justify-center mx-1"
                                           onClick={() =>
                                             handleOpenClick(lote.lote)
                                           }
@@ -223,7 +225,7 @@ const TableData = (props: IProps) => {
                                   lote.recepciones.map((recep) => (
                                     <>
                                       {mutatedRecepciones ? (
-                                        <tr className="even:bg-gray-50">
+                                        <tr className="even:bg-gray-50 hover:bg-gray-100 hover:cursor-pointer">
                                           <td className="py-1 text-left pl-24">
                                             {recep.recepcion}
                                           </td>
