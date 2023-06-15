@@ -37,8 +37,7 @@ const Cards = (props: IProps) => {
       complteadoIteracion = complteadoIteracion + recepcion.completado;
       setCompletado(complteadoIteracion);
 
-      porProcesarIteracion =
-        porProcesarIteracion + recepcion.corriendo.porProcesar;
+      porProcesarIteracion = porProcesarIteracion + recepcion.corriendo.porProcesar;
       procesadoIteracion = procesadoIteracion + recepcion.corriendo.procesado;
       setProcesos({
         porProcesar: porProcesarIteracion,
@@ -48,11 +47,9 @@ const Cards = (props: IProps) => {
   }, [recepciones]);
 
   return (
-    <div className="flex w-full m-auto px-6 mb-5">
+    <div className="flex gap-5 w-full m-auto px-6 mb-5">
       <PisoCard disponible={disponible} />
-
       <ProcesosCard procesando={procesos} />
-
       <CompletadoCard completado={completado} />
       <ParaEmpacar empacar={paraEmpacar} />
     </div>

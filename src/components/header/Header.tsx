@@ -1,15 +1,16 @@
-import React from "react";
-import logo from '../../assets/logo.png'
+import logo from "../../assets/logo.png";
 import HeaderContent from "./HeaderContent";
 import HeaderLastUpdate from "./HeaderLastUpdate";
 
-const Header = () => {
+const Header = (prop: { lastUpddate: string }) => {
+  const { lastUpddate } = prop;
   return (
-  <div className="h-28 flex items-center bg-white drop-shadow-md mb-5">
-    <img className="w-[230px] h-[60px] mx-10" src={logo} alt="Logo"/>
-    <HeaderContent></HeaderContent>
-    <HeaderLastUpdate/>
-  </div>);
+    <div className="flex items-center bg-white drop-shadow-md mb-5 py-3">
+      <img className="h-[40px] mx-10" src={logo} alt="Logo" />
+      <HeaderContent></HeaderContent>
+      <HeaderLastUpdate lastUpddate={lastUpddate} />
+    </div>
+  );
 };
 
 export default Header;
